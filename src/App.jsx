@@ -8,7 +8,7 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App dark:bg-gray-800 min-h-screen dark:text-white">
       <Header />
       <Routes>
         <Route path="/" element={<ProductsList />} />

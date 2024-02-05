@@ -21,59 +21,62 @@ export default function UserPage() {
       return;
     }
     dispatch(updateUser({ firstName, lastName, email }));
-    setConfirmation("Profile updated successfully!");
+    setConfirmation("Votre profil a été mis à jour !");
     setError("");
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10">
-      <h2 className="text-2xl font-bold mb-4">Edit Profile</h2>
+    <div className="max-w-md mx-auto mt-10 p-4">
+      <h2 className="text-2xl font-bold mb-4">Modifier le profil</h2>
       {error && <div className="text-red-500">{error}</div>}
       {confirmation && <div className="text-green-500">{confirmation}</div>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
             htmlFor="firstName"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-white"
           >
-            First Name
+            Prénom
           </label>
           <input
             type="text"
             id="firstName"
+            placeholder="Votre prénom ..."
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:text-black"
           />
         </div>
         <div>
           <label
             htmlFor="lastName"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-white"
           >
-            Last Name
+            Nom
           </label>
           <input
             type="text"
             id="lastName"
+            placeholder="Votre nom ..."
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:text-black"
           />
         </div>
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 dark:text-white"
           >
             Email
           </label>
           <input
             type="email"
             id="email"
+            placeholder="Votre adresse mail ..."
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:text-black"
           />
         </div>
         <div>
@@ -81,7 +84,7 @@ export default function UserPage() {
             type="submit"
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            Update Profile
+            Mettre à jour le profil
           </button>
         </div>
       </form>

@@ -10,7 +10,7 @@ export default function ProductItem({ product }) {
   };
 
   return (
-    <div className="border p-4 rounded-lg shadow">
+    <div className="flex flex-col border p-4 rounded-lg shadow dark:bg-gray-700 dark:border-gray-700">
       <img
         src={product.image}
         alt={product.title}
@@ -22,7 +22,7 @@ export default function ProductItem({ product }) {
       <div className="mb-4">Prix : {product.price} €</div>
       <button
         onClick={handleAddToCart}
-        className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
+        className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 mt-auto"
       >
         Ajouter au panier
       </button>

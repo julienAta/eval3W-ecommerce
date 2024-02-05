@@ -18,11 +18,11 @@ export default function ProductsList() {
     }
   }, [status, dispatch]);
 
-  if (status === "loading") return <div>Loading...</div>;
-  if (status === "failed") return <div>Error: {error}</div>;
+  if (status === "loading") return <div>Chargement ...</div>;
+  if (status === "failed") return <div>Erreur: {error}</div>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-7xl mx-auto py-12">
       {products.map((product) => (
         <ProductItem key={product.id} product={product} />
       ))}
