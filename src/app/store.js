@@ -17,5 +17,9 @@ store.subscribe(() => {
   const cartState = state.cart;
   localStorage.setItem("cart", JSON.stringify(cartState));
 });
+store.subscribe(() => {
+  const state = store.getState();
+  localStorage.setItem("userInfo", JSON.stringify(state.user));
+});
 
 export default store;

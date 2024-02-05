@@ -1,11 +1,15 @@
 // src/features/user/userSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  firstName: "Guest",
-  lastName: "",
-  email: "",
-};
+// Attempt to load user info from localStorage or use initial default values
+const savedUserInfo = localStorage.getItem("userInfo");
+const initialState = savedUserInfo
+  ? JSON.parse(savedUserInfo)
+  : {
+      firstName: "Guest",
+      lastName: "",
+      email: "",
+    };
 
 const userSlice = createSlice({
   name: "user",
@@ -16,6 +20,8 @@ const userSlice = createSlice({
       state.firstName = firstName;
       state.lastName = lastName;
       state.email = email;
+      // After updating the state, save the new user info to localStorage
+      localStorage.setItem("userInfo", JSON.stringify(state));
     },
   },
 });
