@@ -2,8 +2,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "./productsSlice";
-import ProductItem from "./ProductItem"; // We'll create this component next
-
+import LoadingSpinner from "../../components/LoadingSpinner";
 export default function ProductsList() {
   const dispatch = useDispatch();
   const {
@@ -18,7 +17,7 @@ export default function ProductsList() {
     }
   }, [status, dispatch]);
 
-  if (status === "loading") return <div>Chargement ...</div>;
+  if (status === "loading") return <LoadingSpinner />;
   if (status === "failed") return <div>Erreur: {error}</div>;
 
   return (
