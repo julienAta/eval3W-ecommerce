@@ -2,7 +2,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "./productsSlice";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import ProductItem from "./ProductItem"; // We'll create this component next
+import BounceLoader from "react-spinners/BounceLoader";
 export default function ProductsList() {
   const dispatch = useDispatch();
   const {
@@ -17,7 +18,12 @@ export default function ProductsList() {
     }
   }, [status, dispatch]);
 
-  if (status === "loading") return <LoadingSpinner />;
+  if (status === "loading")
+    return (
+      <div className="flex justify-center items-center h-[50vh]">
+        <BounceLoader color="#3b82f6" />
+      </div>
+    );
   if (status === "failed") return <div>Erreur: {error}</div>;
 
   return (
